@@ -7,7 +7,7 @@ import (
 )
 
 func simpleRedirect(w http.ResponseWriter, r *http.Request) {
-	targetUrl := fmt.Sprintf("https://www.%s", r.Host)
+	targetUrl := fmt.Sprintf("https://www.%s%s", r.Host, r.URL.RequestURI())
 	http.Redirect(w, r, targetUrl, 301)
 }
 
